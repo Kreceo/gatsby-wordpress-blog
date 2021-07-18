@@ -30,6 +30,23 @@ module.exports = {
       },
     },
     `gatsby-plugin-gatsby-cloud`,
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        // Specify the URL of the WordPress source
+        url:
+        // allows a fallback url if WPGRAPHQL_URL is not set in the env, this may be a local or remote WP instance.
+        `https://fitnesslane.live-website.com/graphql`,
+        // Indicates if a site is hosted on WordPress.com
+        hostingWPCOM: true,
+        // Specify which URL structures to fetch
+        includedRoutes: [
+          '**/posts',
+          '**/tags',
+          '**/categories'
+        ]
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
